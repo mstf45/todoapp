@@ -2,19 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:todoapp/custom_keys/keys.dart';
 import 'package:todoapp/data/database.dart';
 import 'package:todoapp/pages/home.dart';
 import 'package:todoapp/util/dialog_box.dart';
 
 mixin HomeMixinUsing on State<HomePage> {
+
   final ScrollController scrollController = ScrollController();
 
-  final _mybox = Hive.box('mybox');
+  final _mybox = Hive.box(CustomKeys.myBoxName);
   ToDoDataBase db = ToDoDataBase();
 
   @override
   void initState() {
-    if (_mybox.get('TODOLIST') == null) {
+    if (_mybox.get(CustomKeys.loadData) == null) {
       db.createInitData();
     } else {
       db.loadData();
@@ -92,16 +94,16 @@ mixin HomeMixinUsing on State<HomePage> {
                 db.updateDataBase();
                 Navigator.pop(context);
               },
-              icon: const Text('Devam'),
+              icon:  Text(CustomKeys.deleteTaskButton1),
             ),
             IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Text('Vazgeç'),
+              icon:  Text(CustomKeys.deleteTaskButton2),
             ),
           ],
-          title: const Text('Dikkat \n Notunuz Silinecektir.!'),
+          title:  Text(CustomKeys.deleteTaskTitle),
           insetAnimationCurve: Curves.easeIn,
         );
       },

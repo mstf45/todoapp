@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:todoapp/custom_keys/keys.dart';
 import 'package:todoapp/pages/home.dart';
 
 void main() async {
   await Hive.initFlutter();
-  var box = await Hive.openBox('mybox');
+  var box = await Hive.openBox(CustomKeys.myBoxName);
   runApp(const MyApp());
 }
 

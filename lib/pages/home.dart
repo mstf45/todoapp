@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:todoapp/custom_keys/keys.dart';
 import 'package:todoapp/pages/home_mixin/home_mixin.dart';
 import 'package:todoapp/util/todo_tile.dart';
 import 'package:hidable/hidable.dart';
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
         backgroundColor: const Color(0xff522B5B),
         centerTitle: true,
         title: Text(
-          'Notlarınız',
+          CustomKeys.appbarTitle,
           style: TextStyle(
             fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
           ),
@@ -43,16 +44,16 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
                             deleteAllTasks();
                             Navigator.pop(context);
                           },
-                          icon: const Text('Devam'),
+                          icon:  Text(CustomKeys.deleteTaskButton1),
                         ),
                         IconButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          icon: const Text('Vazgeç'),
+                          icon:  Text(CustomKeys.deleteTaskButton2,),
                         ),
                       ],
-                      title: const Text('Dikkat \n Tüm Notlarınız Silinecektir.!'),
+                      title: Text(CustomKeys.cupertinoAlertDialog),
                       insetAnimationCurve: Curves.easeIn,
                     );
                   },
@@ -88,11 +89,10 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
                   if (controller.text.isEmpty)
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
-                      child: Lottie.asset('assets/lottie/success.json',
-                          repeat: false),
+                      child: Lottie.asset(CustomKeys.assetsPath, repeat: false),
                     ),
                   Text(
-                    'Yeni Proje Eklemek İçin \n + \n Butonuna Basınız.',
+                    CustomKeys.clearListAdd,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize:
@@ -107,20 +107,21 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
         child: Align(
           alignment: Alignment.bottomRight,
           child: FloatingActionButton.extended(
-            tooltip: 'Yeni Not Ekle',
             elevation: 0,
             backgroundColor: const Color(0xff06142e),
             onPressed: createNewTaskk,
             label: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Yeni Bir Proje Ekle ',
+                  CustomKeys.buttonName,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                     fontSize: Theme.of(context).textTheme.bodyLarge?.fontSize,
                   ),
                 ),
+                const SizedBox(width: 10),
                 const Icon(
                   Icons.arrow_forward_ios,
                   color: Colors.white,

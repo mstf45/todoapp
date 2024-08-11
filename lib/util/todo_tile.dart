@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todoapp/custom_keys/keys.dart';
 
 class ToDoTile extends StatelessWidget {
   final String taskName;
@@ -33,7 +34,7 @@ class ToDoTile extends StatelessWidget {
           children: [
             SlidableAction(
               spacing: 7,
-              label: 'Edit',
+              label: CustomKeys.slidableLabelEdit,
               onPressed: editFuntion,
               icon: Icons.edit,
               backgroundColor: const Color(0xff522B5B),
@@ -46,7 +47,7 @@ class ToDoTile extends StatelessWidget {
           children: [
             SlidableAction(
               spacing: 7,
-              label: 'Sil',
+              label: CustomKeys.slidableLabelDelete,
               onPressed: deleteFuntion,
               icon: Icons.delete,
               backgroundColor: const Color(0xff522B5B),

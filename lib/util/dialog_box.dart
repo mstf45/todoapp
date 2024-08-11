@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:todoapp/custom_keys/keys.dart';
 import 'package:todoapp/util/my_button.dart';
 
 class DialogBox extends StatelessWidget {
@@ -22,7 +23,7 @@ class DialogBox extends StatelessWidget {
         backgroundColor: const Color(0xff522B5B),
         elevation: 0,
         title: Text(
-          'Görev Ekle',
+          CustomKeys.dialogBoxAppbarTitile,
           style: TextStyle(
             fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
           ),
@@ -36,13 +37,13 @@ class DialogBox extends StatelessWidget {
             ListTile(
               contentPadding: EdgeInsets.zero,
               title: Text(
-                'Yeni bir tane ekle',
+                CustomKeys.listTileTitle,
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.headlineLarge?.fontSize,
                 ),
               ),
               subtitle: Text(
-                'Bana Görevinden Bahset',
+                CustomKeys.listTileSubTitle,
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
                 ),
@@ -53,15 +54,15 @@ class DialogBox extends StatelessWidget {
             TextFormField(
               style: const TextStyle(fontSize: 20),
               controller: controller,
-              decoration: const InputDecoration(
-                labelStyle: TextStyle(fontSize: 20),
-                focusedBorder: OutlineInputBorder(
+              decoration:  InputDecoration(
+                labelStyle: const TextStyle(fontSize: 20),
+                focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white, width: 3),
                 ),
-                enabledBorder: OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white, width: 2),
                 ),
-                hintText: 'Görevim ',
+                hintText: CustomKeys.textFieldHintText,
               ),
             ),
             const SizedBox(height: 15),
@@ -70,12 +71,12 @@ class DialogBox extends StatelessWidget {
               children: [
                 //Save Button
                 MyButton(
-                  text: 'Şimdi Oluştur',
+                  text: CustomKeys.myButtonName,
                   onPressed: () {
                     if (controller.text.isNotEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text('Başarıyla Eklendi'),
+                          content: Text(CustomKeys.snackBarTitle),
                         ),
                       );
                     }
