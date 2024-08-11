@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
         backgroundColor: const Color(0xff522B5B),
         centerTitle: true,
         title: Text(
-          'Projelerim',
+          'Notlarınız',
           style: TextStyle(
             fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
           ),
