@@ -28,6 +28,6 @@ final class CustomKeys {
   static String snackBarTitle = 'Başarıyla Eklendi';
 
   //ToDoTile
-  static String slidableLabelEdit = 'Edit';
+  static String slidableLabelEdit = 'Düzenle';
   static String slidableLabelDelete = 'Sil';
 }
