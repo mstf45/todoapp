@@ -55,15 +55,6 @@ mixin HomeMixinUsing on State<HomePage> {
 
   final controller = TextEditingController();
 
-/*
-  void checkBoxChanged(bool? value, int index) {
-    setState(() {
-      db.toDoList[index][1] = !db.toDoList[index][1];
-    });
-    db.updateDataBase();
-    _updateSelectAllState();
-  }
-*/
 
   void saveNewTask() {
     setState(() {
@@ -143,17 +134,7 @@ mixin HomeMixinUsing on State<HomePage> {
 
   bool isSelect = false;
   bool isVisibllitiy = false;
-/*
-  void selectAllTasks() {
-    setState(() {
-      bool allSelected = db.toDoList.every((task) => task[1]);
-      for (var i = 0; i < db.toDoList.length; i++) {
-        db.toDoList[i][1] = !allSelected;
-      }
-      isSelect = !allSelected;
-      db.updateDataBase();
-    });
-  }*/
+
 
   void deleteAllTasks() {
     setState(() {
