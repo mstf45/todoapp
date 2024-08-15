@@ -8,6 +8,36 @@ import 'package:todoapp/util/dialog_box.dart';
 
 mixin HomeMixinUsing on State<HomePage> {
 
+  void checkBoxChanged(bool? value, int index) {
+    setState(() {
+      db.toDoList[index][1] = !db.toDoList[index][1];
+    });
+    db.updateDataBase();
+    _updateSelectAllState();
+    _updateVisibilityState();
+  }
+
+  void selectAllTasks() {
+    setState(() {
+      bool allSelected = db.toDoList.every((task) => task[1]);
+      for (var i = 0; i < db.toDoList.length; i++) {
+        if (db.toDoList[i][1] == true) {
+          db.toDoList[i][1] = false;
+        }
+        db.toDoList[i][1] = !allSelected;
+      }
+      isSelect = !allSelected;
+      db.updateDataBase();
+      _updateVisibilityState();
+    });
+  }
+
+  void _updateVisibilityState() {
+    setState(() {
+      isVisibllitiy = db.toDoList.any((task) => task[1]);
+    });
+  }
+
   final ScrollController scrollController = ScrollController();
 
   final _mybox = Hive.box(CustomKeys.myBoxName);
@@ -25,6 +55,7 @@ mixin HomeMixinUsing on State<HomePage> {
 
   final controller = TextEditingController();
 
+/*
   void checkBoxChanged(bool? value, int index) {
     setState(() {
       db.toDoList[index][1] = !db.toDoList[index][1];
@@ -32,6 +63,7 @@ mixin HomeMixinUsing on State<HomePage> {
     db.updateDataBase();
     _updateSelectAllState();
   }
+*/
 
   void saveNewTask() {
     setState(() {
@@ -93,16 +125,16 @@ mixin HomeMixinUsing on State<HomePage> {
                 db.updateDataBase();
                 Navigator.pop(context);
               },
-              icon:  Text(CustomKeys.deleteTaskButton1),
+              icon: Text(CustomKeys.deleteTaskButton1),
             ),
             IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon:  Text(CustomKeys.deleteTaskButton2),
+              icon: Text(CustomKeys.deleteTaskButton2),
             ),
           ],
-          title:  Text(CustomKeys.deleteTaskTitle),
+          title: Text(CustomKeys.deleteTaskTitle),
           insetAnimationCurve: Curves.easeIn,
         );
       },
@@ -110,7 +142,8 @@ mixin HomeMixinUsing on State<HomePage> {
   }
 
   bool isSelect = false;
-
+  bool isVisibllitiy = false;
+/*
   void selectAllTasks() {
     setState(() {
       bool allSelected = db.toDoList.every((task) => task[1]);
@@ -120,7 +153,7 @@ mixin HomeMixinUsing on State<HomePage> {
       isSelect = !allSelected;
       db.updateDataBase();
     });
-  }
+  }*/
 
   void deleteAllTasks() {
     setState(() {

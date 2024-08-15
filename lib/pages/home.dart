@@ -14,12 +14,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with HomeMixinUsing {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff86A8cf),
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leading: Visibility(
+          visible: isVisibllitiy,
+          child: IconButton(
+            icon: const Icon(Icons.cancel),
+            onPressed: () {
+              selectAllTasks();
+            },
+          ),
+        ),
         foregroundColor: Colors.blue,
         backgroundColor: const Color(0xff522B5B),
         centerTitle: true,
@@ -44,13 +54,15 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
                             deleteAllTasks();
                             Navigator.pop(context);
                           },
-                          icon:  Text(CustomKeys.deleteTaskButton1),
+                          icon: Text(CustomKeys.deleteTaskButton1),
                         ),
                         IconButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          icon:  Text(CustomKeys.deleteTaskButton2,),
+                          icon: Text(
+                            CustomKeys.deleteTaskButton2,
+                          ),
                         ),
                       ],
                       title: Text(CustomKeys.cupertinoAlertDialog),
