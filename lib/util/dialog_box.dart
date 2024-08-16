@@ -31,7 +31,7 @@ class DialogBox extends StatelessWidget {
       backgroundColor: const Color(0xff86A8cf),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
+        child: ListView(
           children: [
             ListTile(
               contentPadding: EdgeInsets.zero,
@@ -51,9 +51,10 @@ class DialogBox extends StatelessWidget {
             const SizedBox(height: 15),
             //get user input
             TextFormField(
+              maxLines: null,
               style: const TextStyle(fontSize: 20),
               controller: controller,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelStyle: const TextStyle(fontSize: 20),
                 focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white, width: 3),
@@ -82,8 +83,7 @@ class DialogBox extends StatelessWidget {
                     onSave();
                   },
                 ),
-                const SizedBox(width: 10),
-                const SizedBox(width: 10),
+
               ],
             ),
           ],

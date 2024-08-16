@@ -20,13 +20,10 @@ class ToDoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).width;
     return Padding(
-      padding: const EdgeInsets.only(
-        right: 15.0,
-        left: 15.0,
-        top: 10.0,
-        bottom: 10
-      ),
+      padding:
+          const EdgeInsets.only(right: 15.0, left: 15.0, top: 10.0, bottom: 10),
       child: Slidable(
         dragStartBehavior: DragStartBehavior.down,
         startActionPane: ActionPane(
@@ -56,27 +53,47 @@ class ToDoTile extends StatelessWidget {
           ],
         ),
         child: Container(
+          height: 200,
+          width: width,
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
             color: const Color(0xffE8BCB9),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Row(
+          child: Column(
             children: [
-              Checkbox(
-                value: taskCompleted,
-                onChanged: onChanged,
-                activeColor: const Color(0xff86A8CF),
+              Row(
+                children: [
+                  Checkbox(
+                    value: taskCompleted,
+                    onChanged: onChanged,
+                    activeColor: const Color(0xff86A8CF),
+                  ),
+                  const Text(''),
+                  const Spacer(),
+                  const Text(''),
+                ],
               ),
+              const SizedBox(width: 10),
               Expanded(
-                child: Text(
-                  taskName,
-                  style: TextStyle(
-                    decoration: taskCompleted
-                        ? TextDecoration.lineThrough
-                        : TextDecoration.none,
-                    decorationThickness: 2.5,
-                    fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      textAlign: TextAlign.start,
+                      taskName,
+                      style: TextStyle(
+                        decoration: taskCompleted
+                            ? TextDecoration.lineThrough
+                            : TextDecoration.none,
+                        decorationThickness: 2.5,
+                        fontSize: Theme.of(context)
+                            .textTheme
+                            .titleLarge
+                            ?.fontSize,
+                      ),
+                    ),
                   ),
                 ),
               ),

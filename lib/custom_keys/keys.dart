@@ -5,6 +5,11 @@ final class CustomKeys {
   static String loadData = "TODOLIST";
   static String updateDataBase = "TODOLIST";
 
+  //New Alan
+  static String myBoxTitleName = "myboxtitle";
+  static String loadDataTitle = "TODOLISTTİLE";
+  static String updateDataBaseTitle = "TODOLISTTİLE";
+
   //Home Mixin
   static String deleteTaskButton1 = 'Devam';
   static String deleteTaskButton2 = 'Vazgeç';
@@ -15,15 +20,15 @@ final class CustomKeys {
   static String cupertinoAlertDialog =
       'Dikkat \n Tüm Notlarınız Silinecektir.!';
   static String clearListAdd =
-      'Yeni Proje Eklemek İçin \n + \n Butonuna Basınız.';
-  static String buttonName = 'Yeni Not Ekle';
+      'Yeni Not Eklemek İçin \n + \n Butonuna Basınız.';
+  static String tooltip = 'Yeni Not Ekle';
   static String assetsPath = 'assets/lottie/success.json';
 
   //DialogBox
-  static String dialogBoxAppbarTitile = 'Görev Ekle';
+  static String dialogBoxAppbarTitile = 'Not Ekle';
   static String listTileTitle = 'Yeni bir tane ekle';
-  static String listTileSubTitle = 'Bana Görevinden Bahset';
-  static String textFieldHintText = 'Görevim';
+  static String listTileSubTitle = 'Notunuzun Konusunu Giriniz.';
+  static String textFieldHintText = 'Notum';
   static String myButtonName = 'Şimdi Oluştur';
   static String snackBarTitle = 'Başarıyla Eklendi';
 

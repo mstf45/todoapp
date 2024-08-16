@@ -14,7 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with HomeMixinUsing {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +23,7 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
         leading: Visibility(
           visible: isVisibllitiy,
           child: IconButton(
+            highlightColor: Colors.transparent,
             icon: const Icon(Icons.cancel),
             onPressed: () {
               selectAllTasks();
@@ -77,6 +77,7 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
             icon: Icon(
               isSelect ? Icons.delete : Icons.check_circle,
             ),
+            highlightColor: Colors.transparent,
           ),
         ],
       ),
@@ -118,27 +119,14 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
         controller: scrollController,
         child: Align(
           alignment: Alignment.bottomRight,
-          child: FloatingActionButton.extended(
+          child: FloatingActionButton(
+            tooltip: CustomKeys.tooltip,
             elevation: 0,
             backgroundColor: const Color(0xff06142e),
             onPressed: createNewTaskk,
-            label: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  CustomKeys.buttonName,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: Theme.of(context).textTheme.bodyLarge?.fontSize,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.white,
-                ),
-              ],
+            child: const Icon(
+              Icons.add,
+              color: Colors.white,
             ),
           ),
         ),
