@@ -7,7 +7,6 @@ import 'package:todoapp/pages/home.dart';
 import 'package:todoapp/util/dialog_box.dart';
 
 mixin HomeMixinUsing on State<HomePage> {
-
   void checkBoxChanged(bool? value, int index) {
     setState(() {
       db.toDoList[index][1] = !db.toDoList[index][1];
@@ -55,14 +54,13 @@ mixin HomeMixinUsing on State<HomePage> {
 
   final controller = TextEditingController();
 
-
   void saveNewTask() {
     setState(() {
       if (controller.text.isNotEmpty) {
         db.toDoList.insert(0, [controller.text, false]);
       }
-      controller.clear();
       Navigator.of(context).pop();
+      controller.clear();
       db.updateDataBase();
     });
   }
@@ -78,6 +76,7 @@ mixin HomeMixinUsing on State<HomePage> {
         ),
       ),
     );
+    controller.clear();
   }
 
   void editTask(int index) {
@@ -92,8 +91,8 @@ mixin HomeMixinUsing on State<HomePage> {
             setState(() {
               db.toDoList[index][0] = controller.text;
             });
-            controller.clear();
             Navigator.of(context).pop();
+            controller.clear();
             db.updateDataBase();
           },
           onCancel: () => Navigator.of(context).pop(),
@@ -134,7 +133,6 @@ mixin HomeMixinUsing on State<HomePage> {
 
   bool isSelect = false;
   bool isVisibllitiy = false;
-
 
   void deleteAllTasks() {
     setState(() {

@@ -17,6 +17,7 @@ class DialogBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+    //    automaticallyImplyLeading: false,
         foregroundColor: Colors.blue,
         centerTitle: true,
         backgroundColor: const Color(0xff522B5B),
@@ -83,7 +84,6 @@ class DialogBox extends StatelessWidget {
                     onSave();
                   },
                 ),
-
               ],
             ),
           ],

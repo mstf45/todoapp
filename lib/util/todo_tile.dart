@@ -53,7 +53,7 @@ class ToDoTile extends StatelessWidget {
           ],
         ),
         child: Container(
-          height: 200,
+          height: taskName.characters.length > 30 ? 200 : 150,
           width: width,
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
@@ -88,10 +88,8 @@ class ToDoTile extends StatelessWidget {
                             ? TextDecoration.lineThrough
                             : TextDecoration.none,
                         decorationThickness: 2.5,
-                        fontSize: Theme.of(context)
-                            .textTheme
-                            .titleLarge
-                            ?.fontSize,
+                        fontSize:
+                            Theme.of(context).textTheme.titleLarge?.fontSize,
                       ),
                     ),
                   ),
