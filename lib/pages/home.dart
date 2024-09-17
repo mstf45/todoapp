@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:todoapp/components/color_custom.dart';
 import 'package:todoapp/custom_keys/keys.dart';
 import 'package:todoapp/pages/home_mixin/home_mixin.dart';
 import 'package:todoapp/util/todo_tile.dart';
@@ -17,21 +18,21 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff86A8cf),
+      backgroundColor: ColorCustom.scafoldbackgroundColor,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: Visibility(
           visible: isVisibllitiy,
           child: IconButton(
-            highlightColor: Colors.transparent,
+            //  highlightColor: Colors.transparent,
             icon: const Icon(Icons.cancel),
             onPressed: () {
               selectAllTasks();
             },
           ),
         ),
-        foregroundColor: Colors.blue,
-        backgroundColor: const Color(0xff522B5B),
+        //  foregroundColor: Colors.blue,
+        backgroundColor: ColorCustom.appbarbackgroundColor,
         centerTitle: true,
         title: Text(
           CustomKeys.appbarTitle,
@@ -126,7 +127,7 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
             onPressed: createNewTaskk,
             child: const Icon(
               Icons.add,
-              color: Colors.white,
+              color: ColorCustom.fabButtonbackgroundColor,
             ),
           ),
         ),

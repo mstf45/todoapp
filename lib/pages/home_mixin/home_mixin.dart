@@ -82,10 +82,10 @@ mixin HomeMixinUsing on State<HomePage> {
   void editTask(int index) {
     controller.text = db.toDoList[index][0];
 
-    showDialog(
-      context: context,
-      builder: (context) {
-        return DialogBox(
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+        builder: (context) => DialogBox(
           controller: controller,
           onSave: () {
             setState(() {
@@ -96,8 +96,8 @@ mixin HomeMixinUsing on State<HomePage> {
             db.updateDataBase();
           },
           onCancel: () => Navigator.of(context).pop(),
-        );
-      },
+        ),
+      ),
     );
   }
 

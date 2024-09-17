@@ -27,6 +27,7 @@ final class CustomKeys {
   //DialogBox
   static String dialogBoxAppbarTitile = 'Not Ekle';
   static String listTileTitle = 'Yeni bir tane ekle';
+  static String listTilesubTitleKonu ='Lütfen Notunuzu Giriniz';
   static String listTileSubTitle = 'Notunuzun Konusunu Giriniz.';
   static String textFieldHintText = 'Notum';
   static String myButtonName = 'Şimdi Oluştur';

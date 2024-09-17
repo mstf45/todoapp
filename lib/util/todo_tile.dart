@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todoapp/components/color_custom.dart';
 import 'package:todoapp/custom_keys/keys.dart';
 
 class ToDoTile extends StatelessWidget {
@@ -34,7 +35,8 @@ class ToDoTile extends StatelessWidget {
               label: CustomKeys.slidableLabelEdit,
               onPressed: editFuntion,
               icon: Icons.edit,
-              backgroundColor: const Color(0xff522B5B),
+              backgroundColor:
+                  ColorCustom.todotileSlidableActionbackgroundColor,
               borderRadius: BorderRadius.circular(12),
             ),
           ],
@@ -47,7 +49,8 @@ class ToDoTile extends StatelessWidget {
               label: CustomKeys.slidableLabelDelete,
               onPressed: deleteFuntion,
               icon: Icons.delete,
-              backgroundColor: const Color(0xff522B5B),
+              backgroundColor:
+                  ColorCustom.todotileSlidableActionbackgroundColor,
               borderRadius: BorderRadius.circular(12),
             ),
           ],
@@ -57,7 +60,7 @@ class ToDoTile extends StatelessWidget {
           width: width,
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: const Color(0xffE8BCB9),
+            color: ColorCustom.toditilecontainercolor,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
@@ -67,7 +70,7 @@ class ToDoTile extends StatelessWidget {
                   Checkbox(
                     value: taskCompleted,
                     onChanged: onChanged,
-                    activeColor: const Color(0xff86A8CF),
+                    activeColor: ColorCustom.todotilechectboxactiveColor,
                   ),
                   const Text(''),
                   const Spacer(),
