@@ -24,15 +24,16 @@ class _HomePageState extends State<HomePage> with HomeMixinUsing {
         leading: Visibility(
           visible: isVisibllitiy,
           child: IconButton(
-            //  highlightColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             icon: const Icon(Icons.cancel),
             onPressed: () {
               selectAllTasks();
             },
           ),
         ),
-        //  foregroundColor: Colors.blue,
-        backgroundColor: ColorCustom.appbarbackgroundColor,
+        backgroundColor: db.toDoList.isNotEmpty
+            ? ColorCustom.appbarbackgroundColor
+            : ColorCustom.scafoldbackgroundColor,
         centerTitle: true,
         title: Text(
           CustomKeys.appbarTitle,
